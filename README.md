@@ -1,1 +1,1 @@
-This project is all about react Component 
+# This project is all about React Components.

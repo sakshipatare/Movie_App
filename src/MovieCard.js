@@ -100,7 +100,7 @@ class MovieCard extends React.Component{
                             
                             {/* or */}
 
-                            {card? <button className="cart-btn" onClick={() => {addCard(movie)}}>Add to card</button> : <button className="remove-btn" onClick={() => {addCard(movie)}}>Remove from card</button>}
+                            {card? <button className="remove-btn" onClick={() => {addCard(movie)}}>Remove from card</button> : <button className="cart-btn" onClick={() => {addCard(movie)}}>Add to card</button>}
                         </div>
  
                     </div>

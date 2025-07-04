@@ -1,0 +1,12 @@
+ /* 3. css module (not using just for example type of csss) */
+ 
+.CartCount{
+    background: orange;
+    border-radius: 50%;
+    padding: 4px 8px;
+    position: absolute;
+    right: 10px;
+    top: -5px;
+    font-size: 12px;
+    visibility: visible;
+};

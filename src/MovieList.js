@@ -69,6 +69,40 @@ class MovieList extends React.Component{
             movie:movie
         })
     }
+
+    handleDecState = (movies) => {
+        const {movie} = this.state;
+        const movieID = movie.indexOf(movies);
+
+        if(movie[movieID].stars <= 0){
+            return; 
+        }
+        //         stars: this.state.stars - 0.5
+        movie[movieID].stars -= 0.5;
+        this.setState({
+            movie:movie
+        })
+    }
+
+    handleFavCard = (movies) => {
+      const {movie} = this.state;
+      const movieID = movie.indexOf(movies);
+       //         fav: !this.state.fav
+       movie[movieID].fav = !movie[movieID].fav;
+       this.setState({
+            movie:movie
+        })
+    }
+
+    handleFAddCard = (movies) => {
+      const {movie} = this.state;
+      const movieID = movie.indexOf(movies);
+       //         fav: !this.state.fav
+       movie[movieID].card = !movie[movieID].card;
+       this.setState({
+            movie:movie
+        })
+    }
    
     render(){
         // const {title, plot, price, rating, stars, fav, card, poster} = this.state.movie;
@@ -79,7 +113,7 @@ class MovieList extends React.Component{
            {/* <MovieCard title={title} plot={plot} price={price} rating={rating} stars={stars} fav={fav} card={card} /> */}
            {/* or */}
            {movie.map((movies) =>  
-           <MovieCard movie={movies} addStars = {this.handleIncState} />
+           <MovieCard movie={movies} addStars = {this.handleIncState} subStars = {this.handleDecState} favBtn = {this.handleFavCard} addCard = {this.handleFAddCard}/>
            )}
            </>
         )

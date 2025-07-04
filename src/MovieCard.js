@@ -59,6 +59,7 @@ class MovieCard extends React.Component{
 
     render(){
         const {title, plot, price, rating, stars, fav, card} = this.props.movie || {}; {/* no it is shifted to the parent so props not state and because all in one in MovieList.js*/}
+        const {subStars, movie, favBtn, addCard} = this.props;
         return (
             <div className="main">
                 <div className="movie-card">
@@ -75,15 +76,16 @@ class MovieCard extends React.Component{
                         <div className="footer">
                             <div className="rating">{rating}</div>
                             <div className="star-dis">
-                                <img className="str-btn" alt="decrease" src="https://cdn-icons-png.flaticon.com/128/43/43625.png" onClick={this.subStars}/>
+                                {/* <img className="str-btn" alt="decrease" src="https://cdn-icons-png.flaticon.com/128/43/43625.png" onClick={this.subStars}/> */} {/*this is used when their was no parent class */}
+                                <img className="str-btn" alt="decrease" src="https://cdn-icons-png.flaticon.com/128/43/43625.png" onClick={() => {subStars(movie)}}/>
                                 <img alt="star" src="https://cdn-icons-png.flaticon.com/128/1828/1828884.png" className="stars"/>
                                 {/* <img className="str-btn" alt="increase" src="https://cdn-icons-png.flaticon.com/128/1828/1828925.png" onClick={this.addStars.bind(this)}/> */}
                                 <img className="str-btn" alt="increase" src="https://cdn-icons-png.flaticon.com/128/1828/1828925.png" onClick={() => {this.props.addStars(this.props.movie)}}/>
                                 <span>{stars}</span>
                             </div>
 
-                            {fav? <button className="unfavourite-btn" onClick={this.handleFav}>Un-favourite</button> : 
-                            <button className="favourite-btn" onClick={this.handleFav}>Favourite</button> }
+                            {fav? <button className="unfavourite-btn" onClick={() => {favBtn(movie)}}>Un-favourite</button> : 
+                            <button className="favourite-btn" onClick={() => {favBtn(movie)}}>Favourite</button> }
 
                             {/* or */}
 
@@ -98,7 +100,7 @@ class MovieCard extends React.Component{
                             
                             {/* or */}
 
-                            {card? <button className="cart-btn" onClick={this.handleCard}>Add to card</button> : <button className="remove-btn" onClick={this.handleCard}>Remove from card</button>}
+                            {card? <button className="cart-btn" onClick={() => {addCard(movie)}}>Add to card</button> : <button className="remove-btn" onClick={() => {addCard(movie)}}>Remove from card</button>}
                         </div>
  
                     </div>
